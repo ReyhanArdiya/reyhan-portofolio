@@ -4,7 +4,7 @@ import { type NextPage } from "next";
 const Home: NextPage = () => {
   return (
     <>
-      <Heading>Hello!</Heading>
+      <Heading shadow="brand.double">Hello!</Heading>
       <Text>Meow</Text>
     </>
   );
