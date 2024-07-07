@@ -1,15 +1,13 @@
-import { Button, Heading, Text } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 import { GetStaticProps, type NextPage } from "next";
-import Image from "next/image";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
-import changeLanguage from "@/utils/changeLanguage";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ["common"]))
+      ...(await serverSideTranslations(locale!, ["common", "navbar"]))
     }
   };
 };
@@ -18,13 +16,7 @@ const Home: NextPage = () => {
   const { t } = useTranslation("common");
   const router = useRouter();
 
-  return (
-    <>
-      <Text>{t("title")}</Text>
-      <Button onClick={() => changeLanguage(router, "en")}>EN</Button>
-      <Button onClick={() => changeLanguage(router, "id")}>ID</Button>
-    </>
-  );
+  return <VStack></VStack>;
 };
 
 export default Home;

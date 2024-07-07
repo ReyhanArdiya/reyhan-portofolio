@@ -1,3 +1,4 @@
+import Layout from "@/components/Layout";
 import fonts from "@/styles/fonts";
 import { theme } from "@/styles/theme";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -16,7 +17,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         `}
       </style>
       <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ChakraProvider>
     </>
   );

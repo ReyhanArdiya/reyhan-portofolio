@@ -6,13 +6,20 @@ export const theme = extendTheme({
     heading: "var(--font-presstart2p)",
     body: "var(--font-montserrat)"
   },
+  styles: {
+    global: {
+      "p, header, h1, h2, h3, h4, h5, h6, small": {
+        color: "brand.charcoal.0"
+      }
+    }
+  },
   colors: {
     brand: {
       sage: {
         0: "hsla(146, 20%, 63.7%, 1)"
       },
       charcoal: {
-        0: "hsla(0, 0%, 10.6%, 1)"
+        0: "#1b1b1b"
       },
       white: {
         0: "hsla(30, 57.1%, 97.3%, 1)"
