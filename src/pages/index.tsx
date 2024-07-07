@@ -16,7 +16,7 @@ export const getStaticProps: GetStaticProps = async ({ locale }) => {
 const Home: NextPage = () => {
   const { t } = useTranslation("common");
   const router = useRouter();
-
+  // PROG make story sections
   return (
     <VStack
       px="4"

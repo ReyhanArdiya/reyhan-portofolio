@@ -60,7 +60,8 @@ const Sidebar = (props: Omit<DrawerProps, "children">) => {
       {...props}
     >
       <DrawerOverlay />
-      <DrawerContent>
+      <DrawerContent bg="brand.white.0">
+        {/* TODO add pages links */}
         <DrawerCloseButton />
         <DrawerHeader fontFamily="heading" fontSize="lg">
           {t("title")}
@@ -117,16 +118,25 @@ const Sidebar = (props: Omit<DrawerProps, "children">) => {
 const Navbar = () => {
   const [isOpen, toggleIsOpen] = useBoolean();
   const btnRef = useRef(null);
+  const router = useRouter();
 
   return (
     <HStack as="nav" py="9" px="6" justify="space-between" w="full">
-      <Image src="/images/HeartGreen.png" alt="logo" width={48} height={41.6} />
+      <Image
+        style={{ cursor: "pointer" }}
+        src="/images/HeartGreen.png"
+        alt="logo"
+        width={48}
+        height={41.6}
+        onClick={() => router.push("/")}
+      />
       <>
         <HamburgerIcon
           ref={btnRef}
           onClick={toggleIsOpen.on}
           boxSize="8"
           color="brand.white.0"
+          cursor="pointer"
         />
         <Sidebar
           isOpen={isOpen}

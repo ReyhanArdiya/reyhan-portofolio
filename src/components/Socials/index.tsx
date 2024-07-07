@@ -1,4 +1,7 @@
+import { Link } from "@chakra-ui/next-js";
 import { ColorProps, HStack, LayoutProps, useTheme } from "@chakra-ui/react";
+import { useRouter } from "next/router";
+import { MouseEventHandler } from "react";
 
 export interface IconProps {
   boxSize: string;
@@ -7,6 +10,7 @@ export interface IconProps {
 
 export const EmailPixelIcon = ({ boxSize, color }: IconProps) => (
   <svg
+    style={{ cursor: "pointer" }}
     xmlns="http://www.w3.org/2000/svg"
     width={boxSize}
     height={boxSize}
@@ -57,6 +61,7 @@ export const EmailPixelIcon = ({ boxSize, color }: IconProps) => (
 );
 export const LinkedInPixelIcon = ({ boxSize, color }: IconProps) => (
   <svg
+    style={{ cursor: "pointer" }}
     xmlns="http://www.w3.org/2000/svg"
     width={boxSize}
     height={boxSize}
@@ -85,6 +90,7 @@ export const LinkedInPixelIcon = ({ boxSize, color }: IconProps) => (
 );
 export const GitHubPixelIcon = ({ boxSize, color }: IconProps) => (
   <svg
+    style={{ cursor: "pointer" }}
     xmlns="http://www.w3.org/2000/svg"
     width={boxSize}
     height={boxSize}
@@ -218,6 +224,7 @@ export const GitHubPixelIcon = ({ boxSize, color }: IconProps) => (
 );
 export const InstagramPixelIcon = ({ boxSize, color }: IconProps) => (
   <svg
+    style={{ cursor: "pointer" }}
     xmlns="http://www.w3.org/2000/svg"
     width={boxSize}
     height={boxSize}
@@ -261,15 +268,24 @@ const Socials = ({
   spacing = "2"
 }: Partial<IconProps> & { spacing?: string }) => {
   const theme = useTheme();
+  const router = useRouter();
 
   const iconColor = color || theme.colors.brand.charcoal[0];
 
   return (
     <HStack spacing={spacing}>
-      <EmailPixelIcon boxSize={boxSize} color={iconColor} />
-      <LinkedInPixelIcon boxSize={boxSize} color={iconColor} />
-      <GitHubPixelIcon boxSize={boxSize} color={iconColor} />
-      <InstagramPixelIcon boxSize={boxSize} color={iconColor} />
+      <Link target="_blank" href="mailto:mreyhanapwsw@gmail.com">
+        <EmailPixelIcon boxSize={boxSize} color={iconColor} />
+      </Link>
+      <Link target="_blank" href="https://www.linkedin.com/in/mreyhanapw/">
+        <LinkedInPixelIcon boxSize={boxSize} color={iconColor} />
+      </Link>
+      <Link target="_blank" href="https://github.com/ReyhanArdiya">
+        <GitHubPixelIcon boxSize={boxSize} color={iconColor} />
+      </Link>
+      <Link target="_blank" href="https://www.instagram.com/reyhan_roze/">
+        <InstagramPixelIcon boxSize={boxSize} color={iconColor} />
+      </Link>
     </HStack>
   );
 };
