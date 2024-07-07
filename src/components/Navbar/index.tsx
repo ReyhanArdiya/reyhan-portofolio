@@ -49,7 +49,7 @@ const LangButton = ({
 };
 
 const Sidebar = (props: Omit<DrawerProps, "children">) => {
-  const { t } = useTranslation("navbar");
+  const { t } = useTranslation(["navbar", "common"]);
 
   return (
     <Drawer
@@ -79,7 +79,7 @@ const Sidebar = (props: Omit<DrawerProps, "children">) => {
           <Divider />
 
           <VStack align="start" spacing={4}>
-            <Heading as="h2" size="md">
+            <Heading as="h2" size="md" lineHeight={"1.5em"}>
               {t("github")}
             </Heading>
             <GitHubCalendar
@@ -104,8 +104,10 @@ const Sidebar = (props: Omit<DrawerProps, "children">) => {
 
         <DrawerFooter as={VStack} spacing={2} justify="center">
           <Socials boxSize="48" />
-          <Text fontFamily="heading">{t("footer")}</Text>
-          <Text fontSize="small">Copyright © 2024 Reyhan Ardiya</Text>
+          <Text fontFamily="heading">{t("socials-footer", { ns: "common" })}</Text>
+          <Text fontSize="small">
+            {t("copyright", { ns: "common" })} © 2024 Reyhan Ardiya
+          </Text>
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
