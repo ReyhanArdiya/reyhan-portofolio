@@ -255,13 +255,17 @@ export const InstagramPixelIcon = ({ boxSize, color }: IconProps) => (
   </svg>
 );
 
-const Socials = ({ boxSize = "24", color }: Partial<IconProps>) => {
+const Socials = ({
+  boxSize = "24",
+  color,
+  spacing = "2"
+}: Partial<IconProps> & { spacing?: string }) => {
   const theme = useTheme();
 
   const iconColor = color || theme.colors.brand.charcoal[0];
 
   return (
-    <HStack>
+    <HStack spacing={spacing}>
       <EmailPixelIcon boxSize={boxSize} color={iconColor} />
       <LinkedInPixelIcon boxSize={boxSize} color={iconColor} />
       <GitHubPixelIcon boxSize={boxSize} color={iconColor} />

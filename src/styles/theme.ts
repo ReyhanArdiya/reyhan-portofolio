@@ -10,6 +10,14 @@ export const theme = extendTheme({
     global: {
       "p, header, h1, h2, h3, h4, h5, h6, small": {
         color: "brand.charcoal.0"
+      },
+      "p, small": {
+        letterSpacing: "-0.02em",
+        lineHeight: "1.4em !important"
+      },
+      "h1, h2, h3, h4, h5, h6": {
+        letterSpacing: "-0.04em",
+        lineHeight: "1.5em !important"
       }
     }
   },
