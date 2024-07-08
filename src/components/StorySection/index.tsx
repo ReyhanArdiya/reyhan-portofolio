@@ -1,4 +1,4 @@
-import { Heading, StackProps, Text, VStack } from "@chakra-ui/react";
+import { Heading, Image, StackProps, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { ReactNode } from "react";
 
@@ -29,13 +29,15 @@ export interface StorySectionProps {
   bg?: StackProps["bg"];
   textColor?: StackProps["color"];
   storyIndex: number;
+  arrowColor?: "white" | "black";
 }
 
 const StorySection = ({
   storyIndex,
   image,
   bg = "brand.white.0",
-  textColor = "brand.charcoal.0"
+  textColor = "brand.charcoal.0",
+  arrowColor = "black"
 }: StorySectionProps) => {
   const { t } = useTranslation("stories");
 
@@ -62,12 +64,22 @@ const StorySection = ({
       w="full"
       px="4"
       py="3"
+      pos="relative"
     >
       <Heading color="inherit" textAlign="center" fontSize="x-large" as="h2">
         {titleText}
       </Heading>
       {image}
       {pTexts}
+      <Image
+        position="absolute"
+        src={`/images/arrow-down-${arrowColor}.png`}
+        alt="Arrow"
+        w="45px"
+        h="50px"
+        alignSelf="center"
+        bottom="6"
+      />
     </VStack>
   );
 };

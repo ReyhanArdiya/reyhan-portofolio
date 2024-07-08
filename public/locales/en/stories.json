@@ -1,0 +1,23 @@
+[
+  {
+    "title": "It all started becaused I was <%bored%>...",
+    "paragraphs": [
+      "Back in 2021 I was rotting in my room doing nothing. So, I decided to use my laptop more than just for games by opening up my first IDE Visual Studio and my first programming (not really) book: Head First HTML and CSS."
+    ]
+  },
+  {
+    "title": "Then,I started to <%love <3%>",
+    "paragraphs": [
+      "I didn’t really feel anything during the first few months of learning, but after getting my hands on JavaScript; my drive for programming bloomed from there on out.",
+      "First it was JS, then Git, GitHub, Node, React, TS, Data Structures & Algo, UI/UX, etc... and now, I’m confident enough to handle both the front & back-end of my projects."
+    ]
+  },
+  {
+    "title": "Now,I’m a <%CEO%> :D",
+    "paragraphs": [
+      "I’ve joined multiple organizations from 2022 - 2023 and held leadership positions such as Web Dev manager at Skill Up 2023.",
+      "Then after graduating with distinction from Bangkit 2023 Batch 2 program and leading my team to win the top 10 team to receive incubation funds, now I’m the CEO of my own clothing-swap startup SwapEase.",
+      "And surprisingly,  I did all this while coming from a non-tech background! That’s right, I’m actually a psych major :)"
+    ]
+  }
+]
