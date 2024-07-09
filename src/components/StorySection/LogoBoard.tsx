@@ -1,0 +1,214 @@
+import { Box, BoxProps, Center, Image } from "@chakra-ui/react";
+import { motion, useAnimationControls, useDragControls } from "framer-motion";
+import { ReactNode, useRef, useState } from "react";
+
+export const FloatAnimation = ({ children }: { children: ReactNode }) => {
+  const intialY = Math.random() * 50;
+  const endY = Math.random() * 200;
+
+  return (
+    <motion.div
+      initial={{ y: 0 }}
+      animate={{
+        y: 30,
+        transition: {
+          repeat: Infinity,
+          repeatType: "mirror",
+          type: "keyframes",
+          duration: 5,
+          ease: "easeInOut",
+          repeatDelay: 1
+        }
+      }}
+    >
+      <Box
+        as={motion.div}
+        whileHover={{
+          scale: 1.3
+        }}
+        maxW="48px"
+      >
+        {children}
+      </Box>
+    </motion.div>
+  );
+};
+
+interface LogoProps {
+  src: string;
+}
+
+const Logo = ({ src }: LogoProps) => {
+  return (
+    <FloatAnimation>
+      <Image src={src} w="full" h="full" alt="Tech Logo" draggable="false" />
+    </FloatAnimation>
+  );
+};
+
+interface DraggableBoxProps extends BoxProps {
+  dragConstraints: React.MutableRefObject<null>;
+  rotateDeg: string;
+}
+
+const DraggableBox = (props: DraggableBoxProps) => {
+  const dragControls = useDragControls();
+  const animationControls = useAnimationControls();
+  const [oldTimeOut, setOldTimeOut] = useState<ReturnType<typeof setTimeout>>();
+
+  const onReset = () => {
+    animationControls.start({ x: 0, y: 0 });
+  };
+
+  const onDragEndHandler = () => {
+    clearTimeout(oldTimeOut);
+    setOldTimeOut(setTimeout(onReset, 3000));
+  };
+
+  const onDragStartHandler = () => {
+    clearTimeout(oldTimeOut);
+  };
+
+  return (
+    <Box
+      {...props}
+      as={motion.div}
+      transform="auto"
+      pos="absolute"
+      drag
+      dragElastic={0.3}
+      dragConstraints={props.dragConstraints}
+      rotate={props.rotateDeg}
+      animate={animationControls}
+      dragControls={dragControls}
+      onDragEnd={onDragEndHandler}
+      onDragStart={onDragStartHandler}
+    >
+      {props.children}
+    </Box>
+  );
+};
+
+const DraggableLogo = (props: DraggableBoxProps & LogoProps) => {
+  return (
+    <DraggableBox {...props}>
+      <Logo src={props.src} />
+    </DraggableBox>
+  );
+};
+
+const LogoBoard = () => {
+  const leftTilt = "15deg";
+  const rightTilt = "-15deg";
+  const dragConstraints = useRef(null);
+
+  return (
+    <Center pos="relative" w="full" h="full" ref={dragConstraints} overflow="hidden">
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={rightTilt}
+        bottom="50%"
+        right="20%"
+        src="/images/techs/typescript.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        top="15%"
+        left="10%"
+        src="/images/techs/react.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        bottom="20%"
+        left="30%"
+        src="/images/techs/FlutterFlow.jpeg"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={rightTilt}
+        bottom="25%"
+        right="25%"
+        src="/images/techs/chakraui.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={rightTilt}
+        top="15%"
+        right="35%"
+        src="/images/techs/figma.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        bottom="10%"
+        left="5%"
+        src="/images/techs/firebase.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        bottom="50%"
+        left="20%"
+        src="/images/techs/gcp.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        top="35%"
+        left="5%"
+        src="/images/techs/git-bash.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        bottom="10%"
+        right="10%"
+        src="/images/techs/github.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        top="5%"
+        right="5%"
+        src="/images/techs/javascript.png"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        right="5%"
+        top="30%"
+        src="/images/techs/storybook.svg"
+      />
+
+      <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        top="5%"
+        left="30%"
+        src="/images/techs/node.png"
+      />
+
+      {/* <DraggableLogo
+        dragConstraints={dragConstraints}
+        rotateDeg={leftTilt}
+        bottom="40%"
+        left="15%"
+        src="/images/techs/prisma.png"
+      /> */}
+    </Center>
+  );
+};
+
+export default LogoBoard;

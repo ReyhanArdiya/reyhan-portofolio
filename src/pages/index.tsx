@@ -5,6 +5,7 @@ import { GetStaticProps, type NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Image } from "@chakra-ui/react";
+import LoveStory from "@/components/StorySection/LoveStory";
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
@@ -43,15 +44,18 @@ const Home: NextPage = () => {
         storyIndex={0}
         image={<Image src="/images/story0-image.png" alt="My first tools" />}
       />
+
+      <LoveStory />
+
+      <StorySection storyIndex={2} image={<Text></Text>} />
+
       <StorySection
-        storyIndex={1}
-        image={<Image src="/images/love-finger.svg" alt="Good luck, babe~" />}
+        storyIndex={3}
+        image={<Image src="/images/ceocar.png" alt="Car" />}
         bg="#ffffff00"
         textColor="brand.white.0"
         arrowColor="white"
       />
-
-      <StorySection storyIndex={2} image={<Text></Text>} />
     </>
   );
 };

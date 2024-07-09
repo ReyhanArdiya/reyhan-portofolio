@@ -10,6 +10,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       as="main"
       background="linear-gradient(rgba(27, 27, 27, 0.5), rgba(27, 27, 27, 0.5)), url('/images/StarFall.gif')"
       pos="relative"
+      overflow="hidden"
       // background="linear-gradient(rgba(231, 0, 0, 0.5), rgba(27, 27, 27, 0.5)), url('/images/StarFall.gif')"
     >
       <Box w="full" pos="absolute" top="0">
