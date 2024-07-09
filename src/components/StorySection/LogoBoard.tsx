@@ -3,21 +3,26 @@ import { motion, useAnimationControls, useDragControls } from "framer-motion";
 import { ReactNode, useRef, useState } from "react";
 
 export const FloatAnimation = ({ children }: { children: ReactNode }) => {
-  const intialY = Math.random() * 50;
-  const endY = Math.random() * 200;
+  const start = 0;
+  const end = 30;
+
+  const reverse = Math.random() > 0.5;
 
   return (
     <motion.div
-      initial={{ y: 0 }}
+      initial={{
+        y: reverse ? end : start
+      }}
       animate={{
-        y: 30,
+        y: reverse ? start : end,
         transition: {
           repeat: Infinity,
           repeatType: "mirror",
           type: "keyframes",
           duration: 5,
           ease: "easeInOut",
-          repeatDelay: 1
+          repeatDelay: 1,
+          delay: Math.random() * 5
         }
       }}
     >
@@ -115,15 +120,15 @@ const LogoBoard = () => {
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={leftTilt}
-        top="15%"
-        left="10%"
+        top="10%"
+        left="5%"
         src="/images/techs/react.png"
       />
 
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={leftTilt}
-        bottom="20%"
+        bottom="15%"
         left="30%"
         src="/images/techs/FlutterFlow.jpeg"
       />
@@ -131,7 +136,7 @@ const LogoBoard = () => {
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={rightTilt}
-        bottom="25%"
+        bottom="5%"
         right="25%"
         src="/images/techs/chakraui.png"
       />
@@ -139,15 +144,15 @@ const LogoBoard = () => {
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={rightTilt}
-        top="15%"
-        right="35%"
+        top="10%"
+        right="30%"
         src="/images/techs/figma.png"
       />
 
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={leftTilt}
-        bottom="10%"
+        bottom="7%"
         left="5%"
         src="/images/techs/firebase.png"
       />
@@ -171,15 +176,15 @@ const LogoBoard = () => {
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={leftTilt}
-        bottom="10%"
-        right="10%"
+        bottom="15%"
+        right="2.5%"
         src="/images/techs/github.png"
       />
 
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={leftTilt}
-        top="5%"
+        top="2.5%"
         right="5%"
         src="/images/techs/javascript.png"
       />
@@ -188,7 +193,7 @@ const LogoBoard = () => {
         dragConstraints={dragConstraints}
         rotateDeg={leftTilt}
         right="5%"
-        top="30%"
+        top="33%"
         src="/images/techs/storybook.svg"
       />
 
