@@ -62,7 +62,11 @@ const DraggableBox = (props: DraggableBoxProps) => {
   const [oldTimeOut, setOldTimeOut] = useState<ReturnType<typeof setTimeout>>();
 
   const onReset = () => {
-    animationControls.start({ x: 0, y: 0 });
+    animationControls.start({
+      x: 0,
+      y: 0,
+      rotate: props.rotateDeg
+    });
   };
 
   const onDragEndHandler = () => {
@@ -96,7 +100,7 @@ const DraggableBox = (props: DraggableBoxProps) => {
 
 const DraggableLogo = (props: DraggableBoxProps & LogoProps) => {
   return (
-    <DraggableBox {...props}>
+    <DraggableBox {...props} cursor="grab">
       <Logo src={props.src} />
     </DraggableBox>
   );

@@ -2,26 +2,6 @@ import { Box, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import LogoBoard from "./LogoBoard";
 
-/* 
-TODO
-Add icons for:
-JS
-TS
-React
-Node
-Next.js
-Mongo
-Firebase
-Chakra UI
-Figma
-Git
-GitHub
-GCP
-Storybook
-FlutterFLow
-Docker
-*/
-
 const highlightTitle = (title: string) => {
   const titleSplit = title.split(/(<%.*%>)/gm);
 
@@ -70,7 +50,7 @@ const LoveStory = () => {
       py="3"
       pos="relative"
     >
-      <Box pos="absolute" w="full" h="full" zIndex={1}>
+      <Box pos="absolute" w="full" h="full" zIndex={3}>
         <LogoBoard />
       </Box>
 
