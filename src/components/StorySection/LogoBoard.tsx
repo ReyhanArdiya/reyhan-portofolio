@@ -116,7 +116,14 @@ const LogoBoard = () => {
   const dragConstraints = useRef(null);
 
   return (
-    <Center pos="relative" w="full" h="full" ref={dragConstraints} overflow="hidden">
+    <Center
+      id="LogoBoard"
+      pos="relative"
+      w="full"
+      h="full"
+      ref={dragConstraints}
+      overflow="hidden"
+    >
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={rightTilt}
