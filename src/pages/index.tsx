@@ -6,6 +6,9 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { Image } from "@chakra-ui/react";
 import LoveStory from "@/components/StorySection/LoveStory";
+import PixelCarousel from "@/components/PixelCarousel";
+
+const pixelCarouselImage = ["/images/stories/1.jpg"];
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
@@ -47,7 +50,10 @@ const Home: NextPage = () => {
 
       <LoveStory />
 
-      <StorySection storyIndex={2} image={<Text></Text>} />
+      <StorySection
+        storyIndex={2}
+        image={<PixelCarousel images={pixelCarouselImage} />}
+      />
 
       <StorySection
         storyIndex={3}
