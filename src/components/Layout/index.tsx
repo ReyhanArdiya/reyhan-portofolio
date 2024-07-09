@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Navbar from "../Navbar";
 import { Box, VStack } from "@chakra-ui/react";
+import Footer from "../Footer";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -18,6 +19,8 @@ const Layout = ({ children }: { children: ReactNode }) => {
       </Box>
 
       {children}
+
+      <Footer />
     </VStack>
   );
 };
