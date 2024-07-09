@@ -48,7 +48,7 @@ const StorySection = ({
   }) as string[];
 
   const pTexts = paragraphs.map((p, i) => (
-    <Text color="inherit" textAlign="center" key={i} fontSize="md">
+    <Text maxW="600px" color="inherit" textAlign="center" key={i} fontSize="md">
       {p}
     </Text>
   ));
@@ -68,7 +68,13 @@ const StorySection = ({
       py="3"
       pos="relative"
     >
-      <Heading color="inherit" textAlign="center" fontSize="x-large" as="h2">
+      <Heading
+        color="inherit"
+        textAlign="center"
+        fontSize="x-large"
+        as="h2"
+        maxW="390px"
+      >
         {titleText}
       </Heading>
       {image}

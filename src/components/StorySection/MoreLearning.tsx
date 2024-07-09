@@ -59,6 +59,7 @@ const MoreLearning = () => {
         fontSize="x-large"
         as="h2"
         zIndex={2}
+        maxW="400px"
       >
         {titleText}
       </Heading>
@@ -67,7 +68,7 @@ const MoreLearning = () => {
 
       <VStack spacing="9">
         <VStack spacing="1">
-          {pTexts}
+          {pTexts[0]}
           <Heading
             color="brand.white.0"
             textDecor="underline"

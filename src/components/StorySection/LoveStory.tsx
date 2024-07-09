@@ -32,7 +32,14 @@ const LoveStory = () => {
   }) as string[];
 
   const pTexts = paragraphs.map((p, i) => (
-    <Text zIndex={2} color="inherit" textAlign="center" key={i} fontSize="md">
+    <Text
+      maxW="480px"
+      zIndex={2}
+      color="inherit"
+      textAlign="center"
+      key={i}
+      fontSize="md"
+    >
       {p}
     </Text>
   ));
@@ -62,6 +69,7 @@ const LoveStory = () => {
         fontSize="x-large"
         as="h2"
         zIndex={2}
+        maxW="390px"
       >
         {titleText}
       </Heading>
@@ -72,6 +80,7 @@ const LoveStory = () => {
         zIndex={2}
         draggable="false"
       />
+
       {pTexts}
 
       <Box
