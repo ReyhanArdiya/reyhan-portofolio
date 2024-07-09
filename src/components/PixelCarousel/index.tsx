@@ -9,8 +9,8 @@ const CarouselImage = ({ src }: { src: string }) => {
     <CNImage
       src={src}
       alt="Pixel Carousel"
-      width="300"
-      height="200"
+      width="900"
+      height="600"
       boxSize="full"
       flex="0 0 100%"
       minWidth={0}
@@ -35,7 +35,20 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
   }, [emblaApi]);
 
   return (
-    <HStack spacing="3">
+    <HStack spacing="3" pos="relative">
+      <CNImage
+        src="/images/HeartGreen.png"
+        alt="logo"
+        width="300"
+        height="260"
+        w="48px"
+        h="41.6px"
+        pos="absolute"
+        zIndex="1"
+        top="-10%"
+        right="2.5%"
+      />
+
       <Box onClick={() => emblaApi?.scrollPrev()}>
         <CNImage
           src="/images/arrow-left-black.png"
@@ -50,7 +63,7 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
       <Box
         ref={emblaRef}
         overflow="hidden"
-        bg="brand.orange.0"
+        bg="brand.sage.0"
         boxShadow="4px 4px 0px 0px #1B1B1B, 8px 8px 0px 0px #90B5A0"
       >
         <Box w="300px" h="200px" display="flex">
