@@ -1,6 +1,6 @@
-import { Box, Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
-import LogoBoard from "./LogoBoard";
+import { useRouter } from "next/router";
 
 const highlightTitle = (title: string) => {
   const titleSplit = title.split(/(<%.*%>)/gm);
@@ -22,11 +22,12 @@ const highlightTitle = (title: string) => {
   });
 };
 
-const LoveStory = () => {
+const MoreLearning = () => {
   const { t } = useTranslation("stories");
+  const router = useRouter();
 
-  const title = t(`${1}.title`) as string;
-  const paragraphs = t(`${1}.paragraphs`, {
+  const title = t(`${3}.title`) as string;
+  const paragraphs = t(`${3}.paragraphs`, {
     returnObjects: true
   }) as string[];
 
@@ -40,7 +41,6 @@ const LoveStory = () => {
 
   return (
     <VStack
-      as="section"
       color="brand.white.0"
       spacing="6"
       justify="center"
@@ -50,11 +50,8 @@ const LoveStory = () => {
       px="4"
       py="3"
       pos="relative"
+      as="section"
     >
-      <Box pos="absolute" w="full" h="full" zIndex={3}>
-        <LogoBoard />
-      </Box>
-
       <Heading
         color="inherit"
         textAlign="center"
@@ -65,26 +62,37 @@ const LoveStory = () => {
         {titleText}
       </Heading>
 
-      <Image
-        src="/images/love-finger.svg"
-        alt="Good luck, babe~"
-        zIndex={2}
-        draggable="false"
-      />
-      {pTexts}
-      <Image
-        zIndex={2}
-        position="absolute"
-        src={`/images/arrow-down-white.png`}
-        alt="Arrow"
-        w="45px"
-        h="50px"
-        alignSelf="center"
-        bottom="6"
-        draggable="false"
-      />
+      <Image src="/images/ceocar.png" alt="CEO Car" zIndex={2} draggable="false" />
+
+      <VStack spacing="6">
+        <VStack spacing="1">
+          {pTexts}
+          <Heading
+            color="brand.white.0"
+            textDecor="underline"
+            cursor="pointer"
+            as="h4"
+            size="lg"
+            onClick={() => router.push("/projects")}
+          >
+            {paragraphs[1]} -&gt;
+          </Heading>
+        </VStack>
+
+        <Image
+          zIndex={2}
+          src={`/images/arrow-down-white.png`}
+          alt="Arrow"
+          w="45px"
+          h="50px"
+          alignSelf="center"
+          bottom="6"
+          draggable="false"
+          transform="rotate(180deg)"
+        />
+      </VStack>
     </VStack>
   );
 };
 
-export default LoveStory;
+export default MoreLearning;

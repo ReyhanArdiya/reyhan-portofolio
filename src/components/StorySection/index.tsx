@@ -56,6 +56,7 @@ const StorySection = ({
 
   return (
     <VStack
+      as="section"
       color={textColor}
       spacing="6"
       justify="center"

@@ -7,6 +7,7 @@ import { useTranslation } from "next-i18next";
 import { Image } from "@chakra-ui/react";
 import LoveStory from "@/components/StorySection/LoveStory";
 import PixelCarousel from "@/components/PixelCarousel";
+import MoreLearning from "@/components/StorySection/MoreLearning";
 
 const pixelCarouselImage = ["/images/stories/1.jpg"];
 
@@ -55,13 +56,7 @@ const Home: NextPage = () => {
         image={<PixelCarousel images={pixelCarouselImage} />}
       />
 
-      <StorySection
-        storyIndex={3}
-        image={<Image src="/images/ceocar.png" alt="Car" />}
-        bg="#ffffff00"
-        textColor="brand.white.0"
-        arrowColor="white"
-      />
+      <MoreLearning />
     </>
   );
 };
