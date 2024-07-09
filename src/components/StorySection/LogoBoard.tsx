@@ -52,8 +52,8 @@ const Logo = ({ src }: LogoProps) => {
 };
 
 interface DraggableBoxProps extends BoxProps {
-  dragConstraints: React.MutableRefObject<null>;
-  rotateDeg: string;
+  dragConstraints?: React.MutableRefObject<null>;
+  rotateDeg?: string;
 }
 
 const DraggableBox = (props: DraggableBoxProps) => {
@@ -78,9 +78,13 @@ const DraggableBox = (props: DraggableBoxProps) => {
     clearTimeout(oldTimeOut);
   };
 
+  const boxProps = { ...props };
+  delete boxProps.dragConstraints;
+  delete boxProps.rotateDeg;
+
   return (
     <Box
-      {...props}
+      {...boxProps}
       as={motion.div}
       transform="auto"
       pos="absolute"
