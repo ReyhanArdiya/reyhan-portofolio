@@ -2,6 +2,7 @@ import { Divider, Heading, Text, useTheme, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import Socials from "../Socials";
+import DirectionArrow from "../DirectionArrow";
 
 const Profile = () => {
   const { t } = useTranslation(["common", "hero"]);
@@ -48,12 +49,8 @@ const Profile = () => {
         <Heading size="sm" as="h3" color="brand.white.0" textAlign="center">
           {t("scroll", { ns: "hero" })}
         </Heading>
-        <Image
-          src="/images/arrow-down-white.png"
-          alt="arrow-down"
-          width={45}
-          height={50}
-        />
+
+        <DirectionArrow color="white" />
       </VStack>
     </VStack>
   );

@@ -14,7 +14,7 @@ const DirectionArrow = ({
   const src = `/images/arrow-down-${color}.png`;
 
   return (
-    <FloatAnimation reverse>
+    <FloatAnimation reverse={reverse}>
       <Image
         {...props}
         transform={reverse ? "rotate(180deg)" : "none"}

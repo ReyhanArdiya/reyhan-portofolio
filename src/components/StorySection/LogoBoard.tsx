@@ -2,7 +2,7 @@ import { Box, BoxProps, Center, Image } from "@chakra-ui/react";
 import { motion, useAnimationControls, useDragControls } from "framer-motion";
 import { ReactNode, useRef, useState } from "react";
 
-export const FloatAnimation = ({ children }: { children: ReactNode }) => {
+const FloatAnimation = ({ children }: { children: ReactNode }) => {
   const start = 0;
   const end = 30;
 
@@ -136,8 +136,8 @@ const LogoBoard = () => {
       <DraggableLogo
         dragConstraints={dragConstraints}
         rotateDeg={leftTilt}
-        bottom="15%"
-        left="30%"
+        bottom="11%"
+        left="28%"
         src="/images/techs/FlutterFlow.jpeg"
       />
 

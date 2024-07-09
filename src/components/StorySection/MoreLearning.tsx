@@ -1,6 +1,7 @@
 import { Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
+import DirectionArrow from "../DirectionArrow";
 
 const highlightTitle = (title: string) => {
   const titleSplit = title.split(/(<%.*%>)/gm);
@@ -64,7 +65,7 @@ const MoreLearning = () => {
 
       <Image src="/images/ceocar.png" alt="CEO Car" zIndex={2} draggable="false" />
 
-      <VStack spacing="6">
+      <VStack spacing="9">
         <VStack spacing="1">
           {pTexts}
           <Heading
@@ -79,17 +80,7 @@ const MoreLearning = () => {
           </Heading>
         </VStack>
 
-        <Image
-          zIndex={2}
-          src={`/images/arrow-down-white.png`}
-          alt="Arrow"
-          w="45px"
-          h="50px"
-          alignSelf="center"
-          bottom="6"
-          draggable="false"
-          transform="rotate(180deg)"
-        />
+        <DirectionArrow color="white" reverse />
       </VStack>
     </VStack>
   );

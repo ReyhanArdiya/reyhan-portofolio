@@ -1,6 +1,7 @@
 import { Box, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import LogoBoard from "./LogoBoard";
+import DirectionArrow from "../DirectionArrow";
 
 const highlightTitle = (title: string) => {
   const titleSplit = title.split(/(<%.*%>)/gm);
@@ -72,17 +73,18 @@ const LoveStory = () => {
         draggable="false"
       />
       {pTexts}
-      <Image
+
+      <Box
         zIndex={2}
         position="absolute"
-        src={`/images/arrow-down-white.png`}
-        alt="Arrow"
         w="45px"
         h="50px"
         alignSelf="center"
         bottom="6"
         draggable="false"
-      />
+      >
+        <DirectionArrow color={"white"} />
+      </Box>
     </VStack>
   );
 };

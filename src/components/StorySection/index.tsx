@@ -1,6 +1,7 @@
-import { Heading, Image, StackProps, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, Image, StackProps, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { ReactNode } from "react";
+import DirectionArrow from "../DirectionArrow";
 
 const highlightTitle = (title: string) => {
   const titleSplit = title.split(/(<%.*%>)/gm);
@@ -72,15 +73,10 @@ const StorySection = ({
       </Heading>
       {image}
       {pTexts}
-      <Image
-        position="absolute"
-        src={`/images/arrow-down-${arrowColor}.png`}
-        alt="Arrow"
-        w="45px"
-        h="50px"
-        alignSelf="center"
-        bottom="6"
-      />
+
+      <Box position="absolute" w="45px" h="50px" alignSelf="center" bottom="6">
+        <DirectionArrow color={arrowColor} />
+      </Box>
     </VStack>
   );
 };

@@ -10,7 +10,7 @@ const FloatAnimation = ({
   reverse?: boolean;
 }) => {
   const start = 0;
-  const end = reverse ? -30 : 30;
+  const end = reverse ? -15 : 15;
 
   return (
     <motion.div
