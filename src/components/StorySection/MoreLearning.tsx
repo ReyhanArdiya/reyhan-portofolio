@@ -1,7 +1,8 @@
-import { Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import DirectionArrow from "../DirectionArrow";
+import Footer from "../Footer";
 
 const highlightTitle = (title: string) => {
   const titleSplit = title.split(/(<%.*%>)/gm);
@@ -83,6 +84,10 @@ const MoreLearning = () => {
 
         <DirectionArrow color="white" reverse />
       </VStack>
+
+      <Box position="absolute" bottom="0">
+        <Footer />
+      </Box>
     </VStack>
   );
 };

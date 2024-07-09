@@ -18,6 +18,9 @@ export const theme = extendTheme({
       "h1, h2, h3, h4, h5, h6": {
         letterSpacing: "-0.04em",
         lineHeight: "1.5em !important"
+      },
+      html: {
+        overflowY: "hidden"
       }
     }
   },
