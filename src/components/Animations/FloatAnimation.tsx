@@ -4,10 +4,12 @@ import { ReactNode } from "react";
 
 const FloatAnimation = ({
   children,
-  reverse = false
+  reverse = false,
+  maxW = "48px"
 }: {
   children: ReactNode;
   reverse?: boolean;
+  maxW?: string;
 }) => {
   const start = 0;
   const end = reverse ? -15 : 15;
@@ -34,7 +36,7 @@ const FloatAnimation = ({
         whileHover={{
           scale: 1.3
         }}
-        maxW="48px"
+        maxW={maxW}
       >
         {children}
       </Box>

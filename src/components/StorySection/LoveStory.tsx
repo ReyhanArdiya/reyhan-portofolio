@@ -85,11 +85,11 @@ const LoveStory = () => {
         {titleText}
       </Heading>
 
-      <CNImage
+      <Image
         src="/images/love-finger.svg"
         alt="Good luck, babe~"
-        zIndex={2}
-        draggable="false"
+        zIndex={10}
+        draggable={false}
         width={200}
         height={200}
         boxSize={{

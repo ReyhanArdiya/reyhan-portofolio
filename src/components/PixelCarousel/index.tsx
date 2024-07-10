@@ -44,7 +44,8 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
         sm: "1.25em"
       }}
     >
-      <CNImage
+      <Image
+        draggable={false}
         src="/images/HeartGreen.png"
         alt="logo"
         width="300"
@@ -58,7 +59,8 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
       />
 
       <Box onClick={() => emblaApi?.scrollPrev()}>
-        <CNImage
+        <Image
+          draggable={false}
           src="/images/arrow-left-black.png"
           alt="Previous"
           width="24"
@@ -89,7 +91,8 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
       </Box>
 
       <Box onClick={() => emblaApi?.scrollNext()}>
-        <CNImage
+        <Image
+          draggable={false}
           src="/images/arrow-left-black.png"
           transform="rotate(180deg)"
           alt="Next"

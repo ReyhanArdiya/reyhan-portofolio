@@ -1,3 +1,4 @@
+import FloatAnimation from "@/components/Animations/FloatAnimation";
 import CNImage from "@/components/CNImage";
 import PixelCarousel from "@/components/PixelCarousel";
 import Profile from "@/components/Profile";
@@ -102,15 +103,44 @@ const Home: NextPage = () => {
         <StorySection
           storyIndex={0}
           image={
-            <CNImage
-              src="/images/laptop.svg"
-              alt="My first tools"
-              width={200}
-              height={200}
-              boxSize={{
-                base: "12.5em"
-              }}
-            />
+            <Box pos="relative">
+              <Box pos="absolute" bottom="-0.4em" left="-2.5em">
+                <FloatAnimation maxW="none">
+                  <Image
+                    draggable={false}
+                    src="/images/visualstudio.svg"
+                    alt="Visual Studio Code"
+                    // width={80}
+                    // height={80}
+                    boxSize="5em"
+                    transform="rotate(25deg)"
+                  />
+                </FloatAnimation>
+              </Box>
+              <Box pos="absolute" right="-5em" top="-1.5em">
+                <FloatAnimation maxW="none" reverse>
+                  <Image
+                    draggable={false}
+                    src="/images/headfirst-htmlcss.png"
+                    alt="Visual Studio Code"
+                    // width={854}
+                    // height={993}
+                    w="7.154375em"
+                    h="8.31875em"
+                    transform="rotate(-25deg)"
+                  />
+                </FloatAnimation>
+              </Box>
+              <CNImage
+                src="/images/laptop.svg"
+                alt="My first tools"
+                width={200}
+                height={200}
+                boxSize={{
+                  base: "12.5em"
+                }}
+              />
+            </Box>
           }
         />
       </Box>

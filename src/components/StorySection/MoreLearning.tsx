@@ -73,7 +73,7 @@ const MoreLearning = () => {
         fontSize="1.5em"
         as="h2"
         maxW={{
-          base: "400px",
+          base: "390px",
           md: "500px"
         }}
         zIndex={2}
