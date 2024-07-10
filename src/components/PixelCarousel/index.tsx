@@ -2,7 +2,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import CNImage from "../CNImage";
 import { useEffect, useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Box, Button, Center, HStack, Image, Spinner } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Image, Spinner, Text } from "@chakra-ui/react";
 
 const CarouselImage = ({ src }: { src: string }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -28,14 +28,13 @@ const CarouselImage = ({ src }: { src: string }) => {
         width="1000"
         height="1000"
         boxSize="full"
-        flex="0 0 100%"
-        minWidth={0}
         onLoad={() => {
           console.log("Image loaded");
           setIsLoaded(true);
         }}
         quality={100}
         ref={imgRef}
+        objectFit="cover"
       />
 
       {!isLoaded && (
@@ -53,7 +52,9 @@ export interface PixelCarouselProps {
 
 const PixelCarousel = ({ images }: PixelCarouselProps) => {
   const imageComps = images.map((image, index) => (
-    <CarouselImage key={index} src={image} />
+    <Box key={index} flex="0 0 100%" minW="0">
+      <CarouselImage key={index} src={image} />
+    </Box>
   ));
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
