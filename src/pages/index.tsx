@@ -8,7 +8,17 @@ import MoreLearning from "@/components/StorySection/MoreLearning";
 import { Box, Image, useBoolean, useCounter, VStack } from "@chakra-ui/react";
 import { GetStaticProps, type NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useEffect, useMemo, useRef } from "react";
+import {
+  DragEvent,
+  TouchEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  WheelEvent,
+  WheelEventHandler
+} from "react";
 
 const pixelCarouselImage = ["/images/stories/1.jpg"];
 
@@ -58,29 +68,66 @@ const Home: NextPage = () => {
     };
   }, [refCounter.value, sectionRefs, setIsScrolling]);
 
+  const scrollHandler = useCallback(
+    (event: WheelEvent<HTMLDivElement>) => {
+      const counterVal = +refCounter.value || 0;
+
+      if (
+        isScrolling ||
+        (counterVal === 0 && event.deltaY < 0) ||
+        (counterVal === sectionRefs.length - 1 && event.deltaY > 0)
+      ) {
+        return;
+      }
+
+      if (event.deltaY > 0) {
+        refCounter.increment();
+      } else {
+        refCounter.decrement();
+      }
+
+      setIsScrolling.on();
+    },
+    [isScrolling, refCounter, sectionRefs.length, setIsScrolling]
+  );
+
+  const [touchPosition, setTouchPosition] = useState<number>();
+  const touchStartHandler = useCallback((event: TouchEvent) => {
+    setTouchPosition(event.touches[0].clientY);
+  }, []);
+
+  const touchEndHandler = useCallback(
+    (event: TouchEvent) => {
+      const touchEnd = event.changedTouches[0].clientY;
+      const diff = touchPosition! - touchEnd;
+      const counterVal = +refCounter.value || 0;
+
+      if (
+        isScrolling ||
+        (counterVal === 0 && diff < 0) ||
+        (counterVal === sectionRefs.length - 1 && diff > 0)
+      ) {
+        return;
+      }
+
+      if (diff > 0) {
+        refCounter.increment();
+      } else {
+        refCounter.decrement();
+      }
+
+      setIsScrolling.on();
+    },
+    [refCounter, setIsScrolling, touchPosition]
+  );
+
   return (
     <VStack
       w="full"
       maxH="100vh"
-      onWheel={event => {
-        const counterVal = +refCounter.value || 0;
-
-        if (
-          isScrolling ||
-          (counterVal === 0 && event.deltaY < 0) ||
-          (counterVal === sectionRefs.length - 1 && event.deltaY > 0)
-        ) {
-          return;
-        }
-
-        if (event.deltaY > 0) {
-          refCounter.increment();
-        } else {
-          refCounter.decrement();
-        }
-
-        setIsScrolling.on();
-      }}
+      onWheel={scrollHandler}
+      onTouchStart={touchStartHandler}
+      onTouchEnd={touchEndHandler}
     >
       <Box w="full" ref={profileRef}>
         <VStack
