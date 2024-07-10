@@ -2,6 +2,7 @@ import { Box, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { useTranslation } from "next-i18next";
 import LogoBoard from "./LogoBoard";
 import DirectionArrow from "../DirectionArrow";
+import CNImage from "../CNImage";
 
 const highlightTitle = (title: string) => {
   const titleSplit = title.split(/(<%.*%>)/gm);
@@ -33,12 +34,15 @@ const LoveStory = () => {
 
   const pTexts = paragraphs.map((p, i) => (
     <Text
-      maxW="480px"
+      maxW={{
+        base: "480px",
+        md: "580px"
+      }}
       zIndex={2}
       color="inherit"
       textAlign="center"
       key={i}
-      fontSize="md"
+      fontSize="1em"
     >
       {p}
     </Text>
@@ -58,6 +62,10 @@ const LoveStory = () => {
       px="4"
       py="3"
       pos="relative"
+      fontSize={{
+        base: "1em",
+        md: "1.25em"
+      }}
     >
       <Box pos="absolute" w="full" h="full" zIndex={3}>
         <LogoBoard />
@@ -66,19 +74,27 @@ const LoveStory = () => {
       <Heading
         color="inherit"
         textAlign="center"
-        fontSize="x-large"
+        fontSize="1.5em"
         as="h2"
         zIndex={2}
-        maxW="390px"
+        maxW={{
+          base: "390px",
+          md: "420px"
+        }}
       >
         {titleText}
       </Heading>
 
-      <Image
+      <CNImage
         src="/images/love-finger.svg"
         alt="Good luck, babe~"
         zIndex={2}
         draggable="false"
+        width={200}
+        height={200}
+        boxSize={{
+          base: "12.5em"
+        }}
       />
 
       {pTexts}
