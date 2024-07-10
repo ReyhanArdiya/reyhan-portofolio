@@ -1,3 +1,4 @@
+import CNImage from "@/components/CNImage";
 import PixelCarousel from "@/components/PixelCarousel";
 import Profile from "@/components/Profile";
 import StorySection from "@/components/StorySection";
@@ -100,7 +101,17 @@ const Home: NextPage = () => {
       <Box w="full" ref={firstStoryRef}>
         <StorySection
           storyIndex={0}
-          image={<Image src="/images/story0-image.png" alt="My first tools" />}
+          image={
+            <CNImage
+              src="/images/laptop.svg"
+              alt="My first tools"
+              width={200}
+              height={200}
+              boxSize={{
+                base: "12.5em"
+              }}
+            />
+          }
         />
       </Box>
 

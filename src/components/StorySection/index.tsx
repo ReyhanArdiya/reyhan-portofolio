@@ -48,7 +48,16 @@ const StorySection = ({
   }) as string[];
 
   const pTexts = paragraphs.map((p, i) => (
-    <Text maxW="600px" color="inherit" textAlign="center" key={i} fontSize="md">
+    <Text
+      maxW={{
+        base: "600px",
+        md: "650px"
+      }}
+      color="inherit"
+      textAlign="center"
+      key={i}
+      fontSize="1em"
+    >
       {p}
     </Text>
   ));
@@ -67,13 +76,20 @@ const StorySection = ({
       px="4"
       py="3"
       pos="relative"
+      fontSize={{
+        base: "1em",
+        md: "1.25em"
+      }}
     >
       <Heading
         color="inherit"
         textAlign="center"
-        fontSize="x-large"
+        fontSize="1.5em"
         as="h2"
-        maxW="390px"
+        maxW={{
+          base: "390px",
+          md: "420px"
+        }}
       >
         {titleText}
       </Heading>

@@ -84,15 +84,14 @@ const LoveStory = () => {
       {pTexts}
 
       <Box
-        zIndex={2}
+        zIndex={3}
         position="absolute"
         w="45px"
         h="50px"
         alignSelf="center"
         bottom="6"
-        draggable="false"
       >
-        <DirectionArrow color={"white"} />
+        <DirectionArrow color="white" />
       </Box>
     </VStack>
   );
