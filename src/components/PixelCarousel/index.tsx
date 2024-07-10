@@ -2,15 +2,15 @@ import useEmblaCarousel from "embla-carousel-react";
 import CNImage from "../CNImage";
 import { useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Box, Button, HStack } from "@chakra-ui/react";
+import { Box, Button, HStack, Image } from "@chakra-ui/react";
 
 const CarouselImage = ({ src }: { src: string }) => {
   return (
     <CNImage
       src={src}
       alt="Pixel Carousel"
-      width="900"
-      height="600"
+      width="1000"
+      height="1000"
       boxSize="full"
       flex="0 0 100%"
       minWidth={0}
@@ -35,14 +35,22 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
   }, [emblaApi]);
 
   return (
-    <HStack spacing="3" pos="relative">
+    <HStack
+      id="pixel-carousel"
+      spacing="0.75em"
+      pos="relative"
+      fontSize={{
+        base: "1em",
+        sm: "1.25em"
+      }}
+    >
       <CNImage
         src="/images/HeartGreen.png"
         alt="logo"
         width="300"
         height="260"
-        w="48px"
-        h="41.6px"
+        w="3em"
+        h="2.599375em"
         pos="absolute"
         zIndex="1"
         top="-10%"
@@ -55,8 +63,9 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
           alt="Previous"
           width="24"
           height="54"
-          w="24px"
-          h="54px"
+          w="1.5em"
+          h="3.375em"
+          fontSize="1em"
         />
       </Box>
 
@@ -66,7 +75,15 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
         bg="brand.sage.0"
         boxShadow="4px 4px 0px 0px #1B1B1B, 8px 8px 0px 0px #90B5A0"
       >
-        <Box w="300px" h="200px" display="flex">
+        <Box
+          w="18.75em"
+          h="12.5em"
+          fontSize={{
+            base: "1em",
+            md: "1.25em"
+          }}
+          display="flex"
+        >
           {imageComps}
         </Box>
       </Box>
@@ -78,8 +95,9 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
           alt="Next"
           width="24"
           height="54"
-          w="24px"
-          h="54px"
+          w="1.5em"
+          h="3.375em"
+          fontSize="1em"
         />
       </Box>
     </HStack>
