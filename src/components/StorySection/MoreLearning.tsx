@@ -34,7 +34,16 @@ const MoreLearning = () => {
   }) as string[];
 
   const pTexts = paragraphs.map((p, i) => (
-    <Text zIndex={2} color="inherit" textAlign="center" key={i} fontSize="md">
+    <Text
+      maxW={{
+        base: "600px",
+        md: "650px"
+      }}
+      color="inherit"
+      textAlign="center"
+      key={i}
+      fontSize="1em"
+    >
       {p}
     </Text>
   ));
@@ -53,19 +62,34 @@ const MoreLearning = () => {
       py="3"
       pos="relative"
       as="section"
+      fontSize={{
+        base: "1em",
+        md: "1.25em"
+      }}
     >
       <Heading
         color="inherit"
         textAlign="center"
-        fontSize="x-large"
+        fontSize="1.5em"
         as="h2"
+        maxW={{
+          base: "400px",
+          md: "500px"
+        }}
         zIndex={2}
-        maxW="400px"
       >
         {titleText}
       </Heading>
 
-      <Image src="/images/ceocar.png" alt="CEO Car" zIndex={2} draggable="false" />
+      <Image
+        src="/images/ceocar.png"
+        alt="CEO Car"
+        zIndex={2}
+        draggable="false"
+        w={{
+          base: "12.5em"
+        }}
+      />
 
       <VStack spacing="9">
         <VStack spacing="1">
@@ -75,7 +99,7 @@ const MoreLearning = () => {
             textDecor="underline"
             cursor="pointer"
             as="h4"
-            size="lg"
+            fontSize="1.5em"
             onClick={() => router.push("/projects")}
           >
             {paragraphs[1]} -&gt;
