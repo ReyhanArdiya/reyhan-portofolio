@@ -212,44 +212,50 @@ const ProjectsList = ({ projects }: ProjectsListProps) => {
       flex="1"
       justify="center"
     >
-      <ListControls
-        onClickPrev={() => {
-          emblaApi?.scrollPrev();
-          // setActivePage(emblaApi?.selectedScrollSnap() || 0);
-        }}
-        onClickNext={() => {
-          emblaApi?.scrollNext();
-          // setActivePage(emblaApi?.selectedScrollSnap() || 0);
-        }}
-        title={projects[activePage].title}
-      />
+      {projects.length ? (
+        <>
+          <ListControls
+            onClickPrev={() => {
+              emblaApi?.scrollPrev();
+              // setActivePage(emblaApi?.selectedScrollSnap() || 0);
+            }}
+            onClickNext={() => {
+              emblaApi?.scrollNext();
+              // setActivePage(emblaApi?.selectedScrollSnap() || 0);
+            }}
+            title={projects[activePage].title}
+          />
 
-      <VStack
-        w="full"
-        h="full"
-        maxW="40em"
-        minH="32.7125em"
-        maxH="60em"
-        bg="brand.white.0"
-        boxShadow="4px 4px 0px 0px #1B1B1B, 8px 8px 0px 0px #90B5A0"
-        ref={emblaRef}
-        overflow="hidden"
-        as="section"
-        py="6"
-      >
-        <Box display="flex" h="full" w="full">
-          {carouselItems}
-        </Box>
+          <VStack
+            w="full"
+            h="full"
+            maxW="40em"
+            minH="32.7125em"
+            maxH="60em"
+            bg="brand.white.0"
+            boxShadow="4px 4px 0px 0px #1B1B1B, 8px 8px 0px 0px #90B5A0"
+            ref={emblaRef}
+            overflow="hidden"
+            as="section"
+            py="6"
+          >
+            <Box display="flex" h="full" w="full">
+              {carouselItems}
+            </Box>
 
-        <PageListBoxes
-          count={projects.length}
-          activeIndex={activePage}
-          onClick={index => {
-            emblaApi?.scrollTo(index);
-            // setActivePage(index);
-          }}
-        />
-      </VStack>
+            <PageListBoxes
+              count={projects.length}
+              activeIndex={activePage}
+              onClick={index => {
+                emblaApi?.scrollTo(index);
+                // setActivePage(index);
+              }}
+            />
+          </VStack>
+        </>
+      ) : (
+        <Spinner boxSize="100" color="brand.white.0" />
+      )}
     </VStack>
   );
 };

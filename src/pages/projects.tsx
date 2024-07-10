@@ -1,49 +1,44 @@
 import Footer from "@/components/Footer";
-import ProjectsList from "@/components/ProjectsList";
+import ProjectsList, { Project } from "@/components/ProjectsList";
+import { serverDb } from "@/utils/firebase/server";
 import { VStack } from "@chakra-ui/react";
+import { collection, CollectionReference, getDocs } from "firebase/firestore";
 import { GetStaticProps, type NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-const pixelCarouselImage = ["/images/stories/1.jpg"];
+export interface ProjectsPageProps {
+  projects: Project[];
+}
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<ProjectsPageProps> = async ({
+  locale
+}) => {
+  const db = serverDb;
+
+  const projectsCollection = collection(
+    db,
+    "projects"
+  ) as CollectionReference<Project>;
+
+  const projectsSnapshot = await getDocs(projectsCollection);
+
+  const projects = projectsSnapshot.docs.map(doc => ({
+    id: doc.id,
+    ...doc.data()
+  })) as Project[];
+
   return {
     props: {
-      ...(await serverSideTranslations(locale!, ["common", "navbar", "projects"]))
+      ...(await serverSideTranslations(locale!, ["common", "navbar", "projects"])),
+      projects
     }
   };
 };
 
-const ProjectsPage: NextPage = () => {
+const ProjectsPage: NextPage<ProjectsPageProps> = ({ projects }) => {
   return (
     <VStack as="section" w="full" h="100vh">
-      <ProjectsList
-        projects={[
-          {
-            title: "Project 1",
-            description: "Project 1 description",
-            image: pixelCarouselImage[0],
-            stackUrl: [
-              pixelCarouselImage,
-              pixelCarouselImage,
-              pixelCarouselImage,
-              pixelCarouselImage
-            ]
-          },
-          {
-            title: "Project 2",
-            description: "Project 2 description",
-            image: pixelCarouselImage[0],
-            stackUrl: pixelCarouselImage
-          },
-          {
-            title: "Project 3",
-            description: "Project 3 description",
-            image: pixelCarouselImage[0],
-            stackUrl: pixelCarouselImage
-          }
-        ]}
-      />
+      <ProjectsList projects={projects} />
       <Footer />
     </VStack>
   );
