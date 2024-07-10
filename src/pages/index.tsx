@@ -118,7 +118,7 @@ const Home: NextPage = () => {
 
       setIsScrolling.on();
     },
-    [refCounter, setIsScrolling, touchPosition]
+    [isScrolling, refCounter, sectionRefs.length, setIsScrolling, touchPosition]
   );
 
   return (
