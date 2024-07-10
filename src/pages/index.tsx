@@ -5,46 +5,55 @@ import Profile from "@/components/Profile";
 import StorySection from "@/components/StorySection";
 import LoveStory from "@/components/StorySection/LoveStory";
 import MoreLearning from "@/components/StorySection/MoreLearning";
-import { getStorageInstance } from "@/utils/firebase/clients";
-import {
-  Box,
-  Image,
-  Spinner,
-  useBoolean,
-  useCounter,
-  VStack
-} from "@chakra-ui/react";
+import { serverStorage } from "@/utils/firebase/server";
+import { Box, Image, useBoolean, useCounter, VStack } from "@chakra-ui/react";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { GetStaticProps, type NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import {
-  DragEvent,
   TouchEvent,
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
-  WheelEvent,
-  WheelEventHandler
+  WheelEvent
 } from "react";
 
-const pixelCarouselImage = ["/images/stories/1.jpg"];
+export interface HomeProps {
+  pixelCarouselImages: string[];
+}
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
+export const getStaticProps: GetStaticProps<HomeProps> = async ({ locale }) => {
+  const storage = serverStorage;
+
+  const folderRef = ref(storage!, "stories");
+
+  const images = await listAll(folderRef);
+
+  const pixelCarouselImages: string[] = [];
+
+  for (const imageRef of images.items) {
+    const imageUrl = await getDownloadURL(imageRef);
+    pixelCarouselImages.push(imageUrl);
+  }
+
+  const props = {
+    ...(await serverSideTranslations(locale!, [
+      "common",
+      "navbar",
+      "hero",
+      "stories"
+    ])),
+    pixelCarouselImages
+  };
+
   return {
-    props: {
-      ...(await serverSideTranslations(locale!, [
-        "common",
-        "navbar",
-        "hero",
-        "stories"
-      ]))
-    }
+    props
   };
 };
 
-const Home: NextPage = () => {
+const Home: NextPage<HomeProps> = ({ pixelCarouselImages }) => {
   const profileRef = useRef<HTMLDivElement>(null);
   const firstStoryRef = useRef<HTMLDivElement>(null);
   const loveStoryRef = useRef<HTMLDivElement>(null);
@@ -130,32 +139,32 @@ const Home: NextPage = () => {
     [isScrolling, refCounter, sectionRefs.length, setIsScrolling, touchPosition]
   );
 
-  const [pixelCarouselImages, setPixelCarouselImages] = useState<string[]>();
+  // const [pixelCarouselImages, setPixelCarouselImages] = useState<string[]>();
 
-  useEffect(() => {
-    const getPixelCarouselImages = async () => {
-      const storage = getStorageInstance();
+  // useEffect(() => {
+  //   const getPixelCarouselImages = async () => {
+  //     const storage = getStorageInstance();
 
-      if (!storage) {
-        return;
-      }
+  //     if (!storage) {
+  //       return;
+  //     }
 
-      const folderRef = ref(storage, "stories");
+  //     const folderRef = ref(storage, "stories");
 
-      const images = await listAll(folderRef);
+  //     const images = await listAll(folderRef);
 
-      const imageUrls: string[] = [];
+  //     const imageUrls: string[] = [];
 
-      for (const imageRef of images.items) {
-        const imageUrl = await getDownloadURL(imageRef);
-        imageUrls.push(imageUrl);
-      }
+  //     for (const imageRef of images.items) {
+  //       const imageUrl = await getDownloadURL(imageRef);
+  //       imageUrls.push(imageUrl);
+  //     }
 
-      setPixelCarouselImages(imageUrls);
-    };
+  //     setPixelCarouselImages(imageUrls);
+  //   };
 
-    getPixelCarouselImages();
-  }, []);
+  //   getPixelCarouselImages();
+  // }, []);
 
   return (
     <VStack

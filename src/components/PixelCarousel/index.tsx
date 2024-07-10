@@ -48,21 +48,26 @@ const CarouselImage = ({ src }: { src: string }) => {
 };
 
 export interface PixelCarouselProps {
-  images?: string[];
+  images: string[];
 }
 
 const PixelCarousel = ({ images }: PixelCarouselProps) => {
-  const imageComps = images ? (
-    images.map((image, index) => (
-      <Box key={index} flex="0 0 100%" minW="0">
-        <CarouselImage key={index} src={image} />
-      </Box>
-    ))
-  ) : (
-    <Center pos="absolute" top="0" w="full" h="full" zIndex={3}>
-      <Spinner boxSize="36" />
-    </Center>
-  );
+  // const imageComps = images ? (
+  //   images.map((image, index) => (
+  //     <Box key={index} flex="0 0 100%" minW="0">
+  //       <CarouselImage key={index} src={image} />
+  //     </Box>
+  //   ))
+  // ) : (
+  //   <Center pos="absolute" top="0" w="full" h="full" zIndex={3}>
+  //     <Spinner boxSize="36" />
+  //   </Center>
+  // );
+  const imageComps = images.map((image, index) => (
+    <Box key={index} flex="0 0 100%" minW="0">
+      <CarouselImage key={index} src={image} />
+    </Box>
+  ));
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
 
   return (
