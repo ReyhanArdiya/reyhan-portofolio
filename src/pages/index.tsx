@@ -235,13 +235,7 @@ const Home: NextPage = () => {
       <Box w="full" ref={pixelCarouselRef}>
         <StorySection
           storyIndex={2}
-          image={
-            pixelCarouselImages?.length ? (
-              <PixelCarousel images={pixelCarouselImages} />
-            ) : (
-              <Spinner boxSize="36" />
-            )
-          }
+          image={<PixelCarousel images={pixelCarouselImages} />}
         />
       </Box>
 
