@@ -51,31 +51,37 @@ const LangButton = ({
   );
 };
 
-const PageLink = (props: LinkProps) => {
+const PageLink = (props: LinkProps & { isActive?: boolean }) => {
   return (
     <Link
+      {...props}
       fontFamily="heading"
       fontSize="lg"
-      color="brand.white.0"
+      color={props.isActive ? "brand.sage.0" : props.color || "brand.white.0"}
       _hover={{ color: "brand.sage.0" }}
-      {...props}
     ></Link>
   );
 };
 
 const PageLinks = () => {
   const { t } = useTranslation("navbar");
+  const router = useRouter();
 
   return (
     <HStack spacing="4">
-      <PageLink href="/">{t("links.home")}</PageLink>
-      <PageLink href="/projects">{t("links.projects")}</PageLink>
+      <PageLink isActive={router.pathname === "/"} href="/">
+        {t("links.home")}
+      </PageLink>
+      <PageLink isActive={router.pathname === "/projects"} href="/projects">
+        {t("links.projects")}
+      </PageLink>
     </HStack>
   );
 };
 
 const Sidebar = (props: Omit<DrawerProps, "children">) => {
   const { t } = useTranslation(["navbar", "common"]);
+  const router = useRouter();
 
   return (
     <Drawer
@@ -98,10 +104,18 @@ const Sidebar = (props: Omit<DrawerProps, "children">) => {
           <VStack align="start" py="4">
             <Text>{t("site-map")}</Text>
             <VStack align="start" spacing="4">
-              <PageLink color="brand.charcoal.0" href="/">
+              <PageLink
+                isActive={router.pathname === "/"}
+                color="brand.charcoal.0"
+                href="/"
+              >
                 {t("links.home")}
               </PageLink>
-              <PageLink color="brand.charcoal.0" href="/projects">
+              <PageLink
+                isActive={router.pathname === "/projects"}
+                color="brand.charcoal.0"
+                href="/projects"
+              >
                 {t("links.projects")}
               </PageLink>
             </VStack>
