@@ -1,20 +1,49 @@
 import useEmblaCarousel from "embla-carousel-react";
 import CNImage from "../CNImage";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
-import { Box, Button, HStack, Image } from "@chakra-ui/react";
+import { Box, Button, Center, HStack, Image, Spinner } from "@chakra-ui/react";
 
 const CarouselImage = ({ src }: { src: string }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  const imgCurrent = imgRef.current;
+
+  useEffect(() => {
+    if (
+      (imgCurrent?.naturalHeight && imgCurrent.naturalHeight > 0) ||
+      // Check if from cache
+      imgCurrent?.src !== src
+    ) {
+      setIsLoaded(true);
+    }
+  }, [imgCurrent, src]);
+
   return (
-    <CNImage
-      src={src}
-      alt="Pixel Carousel"
-      width="1000"
-      height="1000"
-      boxSize="full"
-      flex="0 0 100%"
-      minWidth={0}
-    />
+    <Box boxSize="full" pos="relative">
+      <CNImage
+        src={src}
+        alt="Pixel Carousel"
+        width="1000"
+        height="1000"
+        boxSize="full"
+        flex="0 0 100%"
+        minWidth={0}
+        onLoad={() => {
+          console.log("Image loaded");
+          setIsLoaded(true);
+        }}
+        quality={100}
+        ref={imgRef}
+      />
+
+      {!isLoaded && (
+        <Center pos="absolute" top="0" w="full" h="full" zIndex={3}>
+          <Spinner boxSize="36" />
+        </Center>
+      )}
+    </Box>
   );
 };
 
@@ -27,12 +56,6 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
     <CarouselImage key={index} src={image} />
   ));
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-
-  useEffect(() => {
-    if (emblaApi) {
-      console.log(emblaApi.slideNodes()); // Access API
-    }
-  }, [emblaApi]);
 
   return (
     <HStack

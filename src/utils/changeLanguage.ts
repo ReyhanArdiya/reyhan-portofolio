@@ -5,7 +5,6 @@ const changeLanguage = (router: NextRouter, locale: string) => {
   const { pathname, query } = router;
   const expires = new Date();
   expires.setFullYear(expires.getFullYear() + 10);
-  console.log(expires);
   setCookie("NEXT_LOCALE", locale, {
     expires
   });

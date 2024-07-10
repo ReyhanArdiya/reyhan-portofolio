@@ -5,7 +5,16 @@ import Profile from "@/components/Profile";
 import StorySection from "@/components/StorySection";
 import LoveStory from "@/components/StorySection/LoveStory";
 import MoreLearning from "@/components/StorySection/MoreLearning";
-import { Box, Image, useBoolean, useCounter, VStack } from "@chakra-ui/react";
+import { getStorageInstance } from "@/utils/firebase/clients";
+import {
+  Box,
+  Image,
+  Spinner,
+  useBoolean,
+  useCounter,
+  VStack
+} from "@chakra-ui/react";
+import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { GetStaticProps, type NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import {
@@ -121,6 +130,33 @@ const Home: NextPage = () => {
     [isScrolling, refCounter, sectionRefs.length, setIsScrolling, touchPosition]
   );
 
+  const [pixelCarouselImages, setPixelCarouselImages] = useState<string[]>();
+
+  useEffect(() => {
+    const getPixelCarouselImages = async () => {
+      const storage = getStorageInstance();
+
+      if (!storage) {
+        return;
+      }
+
+      const folderRef = ref(storage, "stories");
+
+      const images = await listAll(folderRef);
+
+      const imageUrls: string[] = [];
+
+      for (const imageRef of images.items) {
+        const imageUrl = await getDownloadURL(imageRef);
+        imageUrls.push(imageUrl);
+      }
+
+      setPixelCarouselImages(imageUrls);
+    };
+
+    getPixelCarouselImages();
+  }, []);
+
   return (
     <VStack
       w="full"
@@ -199,7 +235,13 @@ const Home: NextPage = () => {
       <Box w="full" ref={pixelCarouselRef}>
         <StorySection
           storyIndex={2}
-          image={<PixelCarousel images={pixelCarouselImage} />}
+          image={
+            pixelCarouselImages?.length ? (
+              <PixelCarousel images={pixelCarouselImages} />
+            ) : (
+              <Spinner boxSize="36" />
+            )
+          }
         />
       </Box>
 

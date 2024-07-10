@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { getAnalytics } from "firebase/analytics";
 import { getApps, initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -31,10 +32,18 @@ export const getApp = () => {
 export const getAnalyticsInstance = () => {
   const app = getApp();
 
-  console.log("Meow");
-
   if (checkIfBrowser() && app) {
     return getAnalytics();
+  }
+
+  return null;
+};
+
+export const getStorageInstance = () => {
+  const app = getApp();
+
+  if (checkIfBrowser() && app) {
+    return getStorage(app);
   }
 
   return null;
