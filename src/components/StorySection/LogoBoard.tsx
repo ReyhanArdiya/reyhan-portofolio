@@ -3,26 +3,31 @@ import { motion, useAnimationControls, useDragControls } from "framer-motion";
 import { ReactNode, useRef, useState } from "react";
 
 const FloatAnimation = ({ children }: { children: ReactNode }) => {
-  const start = 0;
-  const end = 30;
+  let start = 0;
+  let end = 30;
 
   const reverse = Math.random() > 0.5;
+
+  if (reverse) {
+    start = 30;
+    end = 0;
+  }
 
   return (
     <motion.div
       initial={{
-        y: reverse ? end : start
+        y: start
       }}
       animate={{
-        y: reverse ? start : end,
+        y: end,
         transition: {
           repeat: Infinity,
           repeatType: "mirror",
           type: "keyframes",
           duration: 5,
           ease: "easeInOut",
-          repeatDelay: 1,
-          delay: Math.random() * 5
+          repeatDelay: 1
+          // delay: Math.random() * 2.5
         }
       }}
     >
