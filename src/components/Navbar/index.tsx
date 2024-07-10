@@ -7,6 +7,8 @@ import {
   HStack,
   Text,
   useBoolean,
+  useBreakpoint,
+  useBreakpointValue,
   VStack
 } from "@chakra-ui/react";
 import Image from "next/image";
@@ -26,6 +28,7 @@ import Socials from "../Socials";
 import { useRouter } from "next/router";
 import changeLanguage from "../../utils/changeLanguage";
 import GitHubCalendar from "react-github-calendar";
+import { Link, LinkProps } from "@chakra-ui/next-js";
 
 const LangButton = ({
   label,
@@ -45,6 +48,29 @@ const LangButton = ({
     >
       {label}
     </Button>
+  );
+};
+
+const PageLink = (props: LinkProps) => {
+  return (
+    <Link
+      fontFamily="heading"
+      fontSize="lg"
+      color="brand.white.0"
+      _hover={{ color: "brand.sage.0" }}
+      {...props}
+    ></Link>
+  );
+};
+
+const PageLinks = () => {
+  const { t } = useTranslation("navbar");
+
+  return (
+    <HStack spacing="4">
+      <PageLink href="/">{t("links.home")}</PageLink>
+      <PageLink href="/projects">{t("links.projects")}</PageLink>
+    </HStack>
   );
 };
 
@@ -69,7 +95,20 @@ const Sidebar = (props: Omit<DrawerProps, "children">) => {
         <Divider />
 
         <DrawerBody as={VStack} align="start">
-          <VStack align="start">
+          <VStack align="start" py="4">
+            <Text>{t("site-map")}</Text>
+            <VStack align="start" spacing="4">
+              <PageLink color="brand.charcoal.0" href="/">
+                {t("links.home")}
+              </PageLink>
+              <PageLink color="brand.charcoal.0" href="/projects">
+                {t("links.projects")}
+              </PageLink>
+            </VStack>
+          </VStack>
+
+          <Divider />
+          <VStack align="start" py="2">
             <Text>{t("change-lang")}</Text>
             <HStack>
               <LangButton label="EN" activeLocale="en" />
@@ -79,7 +118,7 @@ const Sidebar = (props: Omit<DrawerProps, "children">) => {
 
           <Divider />
 
-          <VStack align="start" spacing={4}>
+          <VStack align="start" spacing={4} py="4">
             <Heading as="h2" size="md" lineHeight={"1.5em"}>
               {t("github")}
             </Heading>
@@ -119,17 +158,26 @@ const Navbar = () => {
   const [isOpen, toggleIsOpen] = useBoolean();
   const btnRef = useRef(null);
   const router = useRouter();
+  const showPageLinks = useBreakpointValue({
+    base: false,
+    md: true
+  });
 
   return (
     <HStack as="nav" py="9" px="6" justify="space-between" w="full">
-      <Image
-        style={{ cursor: "pointer" }}
-        src="/images/HeartGreen.png"
-        alt="logo"
-        width={48}
-        height={41.6}
-        onClick={() => router.push("/")}
-      />
+      <HStack spacing="6">
+        <Image
+          style={{ cursor: "pointer" }}
+          src="/images/HeartGreen.png"
+          alt="logo"
+          width={48}
+          height={41.6}
+          onClick={() => router.push("/")}
+        />
+
+        {showPageLinks && <PageLinks />}
+      </HStack>
+
       <>
         <HamburgerIcon
           ref={btnRef}
@@ -138,6 +186,7 @@ const Navbar = () => {
           color="brand.white.0"
           cursor="pointer"
         />
+
         <Sidebar
           isOpen={isOpen}
           onClose={() => toggleIsOpen.off()}
