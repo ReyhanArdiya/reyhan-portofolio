@@ -19,10 +19,10 @@ const Profile = () => {
     >
       <VStack spacing="6">
         <CNImage
-          src="/images/Avatar.png"
+          src="/images/Avatar.svg"
           alt="Reypixel"
-          width={500}
-          height={500}
+          width={1600}
+          height={1600}
           boxSize="12em"
         />
 
