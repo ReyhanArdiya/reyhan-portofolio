@@ -265,7 +265,7 @@ export const InstagramPixelIcon = ({ boxSize, color }: IconProps) => (
 const Socials = ({
   boxSize = "24",
   color,
-  spacing = "2"
+  spacing = "0.5em"
 }: Partial<IconProps> & { spacing?: string }) => {
   const theme = useTheme();
   const router = useRouter();
