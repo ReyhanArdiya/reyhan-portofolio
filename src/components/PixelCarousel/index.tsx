@@ -3,6 +3,7 @@ import CNImage from "../CNImage";
 import { useEffect, useRef, useState } from "react";
 import Autoplay from "embla-carousel-autoplay";
 import { Box, Button, Center, HStack, Image, Spinner, Text } from "@chakra-ui/react";
+import FloatAnimation from "../Animations/FloatAnimation";
 
 const CarouselImage = ({ src }: { src: string }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -68,19 +69,19 @@ const PixelCarousel = ({ images }: PixelCarouselProps) => {
         sm: "1.25em"
       }}
     >
-      <Image
-        draggable={false}
-        src="/images/HeartGreen.png"
-        alt="logo"
-        width="300"
-        height="260"
-        w="3em"
-        h="2.599375em"
-        pos="absolute"
-        zIndex="1"
-        top="-10%"
-        right="2.5%"
-      />
+      <Box pos="absolute" zIndex="1" top="-10%" right="2.5%">
+        <FloatAnimation maxW="none">
+          <Image
+            draggable={false}
+            src="/images/HeartGreen.png"
+            alt="logo"
+            width="300"
+            height="260"
+            w="3em"
+            h="2.599375em"
+          />
+        </FloatAnimation>
+      </Box>
 
       <Box onClick={() => emblaApi?.scrollPrev()}>
         <Image

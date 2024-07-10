@@ -91,12 +91,12 @@ const DraggableBox = (props: DraggableBoxProps) => {
     <Box
       {...boxProps}
       as={motion.div}
-      transform="auto"
       pos="absolute"
       drag
       dragElastic={0.3}
       dragConstraints={props.dragConstraints}
-      rotate={props.rotateDeg}
+      transform={`rotate(${props.rotateDeg})`}
+      // rotate={props.rotateDeg}
       animate={animationControls}
       dragControls={dragControls}
       onDragEnd={onDragEndHandler}
