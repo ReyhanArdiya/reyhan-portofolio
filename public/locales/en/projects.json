@@ -1,0 +1,38 @@
+{
+  "projects": [
+    {
+      "title": "Project 1",
+      "description": "This is a project description",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3",
+      "stackUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3"
+      ]
+    },
+    {
+      "title": "Project 1",
+      "description": "This is a project description",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3",
+      "stackUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3"
+      ]
+    },
+    {
+      "title": "Project 1",
+      "description": "This is a project description",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3",
+      "stackUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3"
+      ]
+    },
+    {
+      "title": "Project 1",
+      "description": "This is a project description",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3",
+      "stackUrl": [
+        "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3"
+      ]
+    }
+  ]
+}
+
+// TODO write projects & add story 3 pictures
