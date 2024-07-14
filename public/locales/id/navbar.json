@@ -1,3 +1,11 @@
 {
-  "title": "Terima kasih telah berkunjung!"
+  "title": "Terima Kasih telah Berkunjung!",
+  "change-lang": "Ubah bahasa",
+  "github": "Kontrib GitHub ku",
+  "commits": "kontribusi setahun terakhir",
+  "links": {
+    "home": "Beranda",
+    "projects": "Proyek"
+  },
+  "site-map": "Jelajahi"
 }

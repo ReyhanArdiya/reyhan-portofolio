@@ -145,6 +145,7 @@ const Sidebar = (props: Omit<DrawerProps, "children">) => {
               labels={{
                 totalCount: `{{count}} ${t("commits")}`
               }}
+
               // theme={
               //   {
               //     light

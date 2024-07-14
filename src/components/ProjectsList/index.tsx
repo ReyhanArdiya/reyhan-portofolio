@@ -68,6 +68,7 @@ export interface Project {
   description: string;
   image: string;
   stackUrl: string[];
+  // TODO add clicakble link
 }
 
 export interface ProjectsListProps {
@@ -84,7 +85,7 @@ const ListControls = ({
   title: string;
 }) => {
   return (
-    <HStack spacing="4">
+    <HStack justify="space-between" w="70%" maxW="32em">
       <Image
         src="/images/arrow-left-white.png"
         alt="Previous"
@@ -99,7 +100,13 @@ const ListControls = ({
         whileHover={{ scale: 1.1 }}
       />
 
-      <Heading fontSize="1em" as="h3" size="md" color="brand.white.0">
+      <Heading
+        fontSize="1em"
+        as="h3"
+        size="md"
+        textAlign="center"
+        color="brand.white.0"
+      >
         {title}
       </Heading>
 
@@ -122,13 +129,14 @@ const ListControls = ({
 
 const CarouselItem = ({ project }: { project: Project }) => {
   const stackImages = project.stackUrl.map((url, index) => (
-    <WrapItem key={index} w="3.125rem" h="3.125rem">
+    <WrapItem key={index} h="3.125rem">
       <CNImage
         src={url}
         alt="Stack"
         width="100"
         height="100"
-        boxSize="3.125rem"
+        // maxH="3.125rem"
+        boxSize="full"
         objectFit="cover"
       />
     </WrapItem>

@@ -5,11 +5,11 @@ import { VStack } from "@chakra-ui/react";
 import { collection, CollectionReference, getDocs } from "firebase/firestore";
 import { GetStaticProps, type NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
+import { i18n, useTranslation } from "next-i18next";
 import { createInstance } from "i18next";
 
 export interface ProjectsPageProps {
-  projects: Project[];
+  // projects: Project[];
 }
 
 export const getStaticProps: GetStaticProps<ProjectsPageProps> = async ({
@@ -30,26 +30,32 @@ export const getStaticProps: GetStaticProps<ProjectsPageProps> = async ({
   // })) as Project[];
 
   const tr = await serverSideTranslations(locale!, ["common", "navbar", "projects"]);
-  const i18n = createInstance({
-    lng: tr?._nextI18Next?.initialLocale,
-    ns: tr?._nextI18Next?.ns,
-    resources: tr?._nextI18Next?.initialI18nStore
-  });
-  i18n.init();
-  const projects = i18n.t("projects:projects", { returnObjects: true }) as Project[];
+
+  // const projects = i18n?.t("projects", {
+  //   returnObjects: true,
+  //   ns: "projects"
+  // }) as Project[];
+
+  // console.log(i18n, projects);
 
   return {
     props: {
-      ...tr,
-      projects
+      ...tr
+      // projects
     }
   };
 };
 
-const ProjectsPage: NextPage<ProjectsPageProps> = ({ projects }) => {
+const ProjectsPage: NextPage<ProjectsPageProps> = (/* { projects } */) => {
+  const { t } = useTranslation("projects");
+
+  const projects = t("projects", {
+    returnObjects: true
+  }) as Project[];
+
   return (
     <VStack as="section" w="full" h="100vh">
-      <ProjectsList projects={projects} />
+      {projects.length && <ProjectsList projects={projects} />}
       <Footer />
     </VStack>
   );
