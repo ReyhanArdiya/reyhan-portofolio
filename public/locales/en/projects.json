@@ -1,35 +1,77 @@
 {
   "projects": [
     {
-      "title": "Project 1",
-      "description": "This is a project description",
-      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3",
+      "title": "SwapEase",
+      "description": "A clothing swap app powered by an AI Stylist that can recommend you clothing styles from nearby clothes. We develop this app to fight fast fashion digitally and alleviate problems students face when trying to swap clothes: difficulty in finding clothes and other people nearby to swap clothes with.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FSwapEase%20App%20Cover.png?alt=media&token=e7fd924f-d8eb-44a8-a596-13d2abd4d1c0",
       "stackUrl": [
-        "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3"
+        "/images/techs/FlutterFlow.jpeg",
+        "/images/techs/firebase.png",
+        "/images/techs/gcp.png",
+        "/images/techs/typescript.png",
+        "/images/techs/python.png"
       ]
     },
     {
-      "title": "Project 1",
-      "description": "This is a project description",
-      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3",
+      "title": "Serena: Smart Home, Smart Wellbeing",
+      "description": "A smart diffuser that utilizes IoT and an emotion detector AI that can detect the users emotions through the device's camera and diffuse the appropiate essential oils to help adjust the users mood automatically.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2F1703506383270.jpeg?alt=media&token=62609290-1036-4b20-a832-de3fdd3f34f7",
       "stackUrl": [
-        "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3"
+        "/images/techs/python.png",
+        "/images/techs/arduino.png",
+        "/images/techs/gcp.png",
+        "/images/techs/node.png",
+        "/images/techs/express.png"
       ]
     },
     {
-      "title": "Project 1",
-      "description": "This is a project description",
-      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3",
+      "title": "Skill Up 2023 Website",
+      "description": "I led my team to redesign and implemented new features to the company's website such as SHAPE B2 registration to help students register to Skill Up's apprenticeship program, #EducationForAll page as part of collaboration with TimorBelajar to help users donate to their cause, and Skill Up's admin panel to help our admins manage data.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FSkill%20Up%202023.jpeg?alt=media&token=4052211f-4b8e-4ff7-a486-45c4003de14f",
       "stackUrl": [
-        "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3"
+        "/images/techs/typescript.png",
+        "/images/techs/next.png",
+        "/images/techs/firebase.png",
+        "/images/techs/storybook.svg",
+        "/images/techs/chakraui.png",
+        "/images/techs/vitest.svg"
       ]
     },
     {
-      "title": "Project 1",
-      "description": "This is a project description",
-      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3",
+      "title": "Collegacy Indonesia 2023 Website",
+      "description": "I market Collegacy Indonesia's company profile and upcoming webinar registrations by designing and developing the company's website",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FColelgacy%20indonesia%202023.jpeg?alt=media&token=2b775c2c-560e-4a5f-9e46-991241593cd9",
       "stackUrl": [
-        "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/stories%2FSWAPEASE-94.jpg?alt=media&token=78714106-2eac-4166-858e-305a3a93f0e3"
+        "/images/techs/typescript.png",
+        "/images/techs/next.png",
+        "/images/techs/firebase.png",
+        "/images/techs/storybook.svg",
+        "/images/techs/chakraui.png",
+        "/images/techs/vitest.svg"
+      ]
+    },
+    {
+      "title": "I Can Do It",
+      "description": "I developed an educational website to help children learn about basic life skills interactively through audio-visual articles and quizzes.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FI%20Can%20Do%20It.png?alt=media&token=dd68eba3-ce44-423c-a975-d88df11ece16",
+      "stackUrl": [
+        "/images/techs/typescript.png",
+        "/images/techs/next.png",
+        "/images/techs/firebase.png",
+        "/images/techs/storybook.svg",
+        "/images/techs/chakraui.png",
+        "/images/techs/vitest.svg"
+      ]
+    },
+    {
+      "title": "VIXUN Music Finder",
+      "description": "My first fullstack website that helps users find music by scrapping through Spotify & Deezer API and augment data from my custom-made Amazon Music scrapper.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FVixun.png?alt=media&token=3b31f724-4622-4cc9-ad23-901e51363159",
+      "stackUrl": [
+        "/images/techs/javascript.png",
+        "/images/techs/node.png",
+        "/images/techs/mongodb.png",
+        "/images/techs/puppeteer.png"
       ]
     }
   ]
