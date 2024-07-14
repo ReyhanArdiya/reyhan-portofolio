@@ -85,7 +85,7 @@ const ListControls = ({
   title: string;
 }) => {
   return (
-    <HStack justify="space-between" w="70%">
+    <HStack justify="space-between" w="70%" maxW="32em">
       <Image
         src="/images/arrow-left-white.png"
         alt="Previous"
