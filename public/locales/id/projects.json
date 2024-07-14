@@ -2,7 +2,7 @@
   "projects": [
     {
       "title": "SwapEase",
-      "description": "A clothing swap app powered by an AI Stylist that can recommend you clothing styles from nearby clothes. We develop this app to fight fast fashion digitally and alleviate problems students face when trying to swap clothes: difficulty in finding clothes and other people nearby to swap clothes with.",
+      "description": "Aplikasi tukar baju ditenagai AI Stylist yang dapat merekomendasikan gaya baru berdasarkan pakaian di sekitar. Kami mengembangkan aplikasi ini untuk #LawanFastFashion secara digital dan meringankan permasalahan yang dialami mahasiswa ketika ingin bertukar baju: sulit mencari pakaian dan orang lain di sekitar untuk bertukar baju",
       "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FSwapEase%20App%20Cover.png?alt=media&token=e7fd924f-d8eb-44a8-a596-13d2abd4d1c0",
       "stackUrl": [
         "/images/techs/FlutterFlow.jpeg",
@@ -14,7 +14,7 @@
     },
     {
       "title": "Serena: Smart Home, Smart Wellbeing",
-      "description": "A smart diffuser that utilizes IoT and an emotion detector AI that can detect the users emotions through the device's camera and diffuse the appropiate essential oils to help adjust the users mood automatically.",
+      "description": "Difuser aromaterapi pintar yang menggunakan IoT dan AI deteksi emosi yang dapat mendeteksi emosi pengguna melalui kamera perangkat dan menguapkan minyak esensial yang sesuai untuk membantu menyesuaikan suasana hati pengguna secara otomatis.",
       "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2F1703506383270.jpeg?alt=media&token=62609290-1036-4b20-a832-de3fdd3f34f7",
       "stackUrl": [
         "/images/techs/python.png",
@@ -26,7 +26,7 @@
     },
     {
       "title": "Skill Up 2023 Website",
-      "description": "I led my team to redesign and implemented new features to the company's website such as SHAPE B2 registration to help students register to Skill Up's apprenticeship program, #EducationForAll page as part of collaboration with TimorBelajar to help users donate to their cause, and Skill Up's admin panel to help our admins manage data.",
+      "description": "Aku memimpin tim aku untuk mendesain ulang dan mengembangkan fitur-fitur baru pada website organisasi seperti sistem registrasi program apprenticeship Skill Up SHAPE B2, halaman #EducationForAll sebagai bagian dari kolaborasi dengan TimorBelajar untuk membantu pengguna mendonasikan dana untuk NTT, dan panel admin Skill Up untuk membantu admin mengelola data.",
       "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FSkill%20Up%202023.jpeg?alt=media&token=4052211f-4b8e-4ff7-a486-45c4003de14f",
       "stackUrl": [
         "/images/techs/typescript.png",
@@ -40,7 +40,7 @@
     },
     {
       "title": "Collegacy Indonesia 2023 Website",
-      "description": "I market Collegacy Indonesia's company profile and upcoming webinar registrations by designing and developing the company's website",
+      "description": "Aku memasarkan profil perusahaan Collegacy Indonesia dan pendaftaran webinar mendatang dengan merancang dan mengembangkan website organisasi di tahun 2023.",
       "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FColelgacy%20indonesia%202023.jpeg?alt=media&token=2b775c2c-560e-4a5f-9e46-991241593cd9",
       "stackUrl": [
         "/images/techs/typescript.png",
@@ -54,7 +54,7 @@
     },
     {
       "title": "I Can Do It",
-      "description": "I developed an educational website to help children learn about basic life skills interactively through audio-visual articles and quizzes.",
+      "description": "Aku mengembangkan website edukasi untuk membantu anak-anak belajar tentang keterampilan hidup dasar secara interaktif melalui artikel audio-visual dan kuis.",
       "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FI%20Can%20Do%20It.png?alt=media&token=dd68eba3-ce44-423c-a975-d88df11ece16",
       "stackUrl": [
         "/images/techs/typescript.png",
@@ -68,7 +68,7 @@
     },
     {
       "title": "VIXUN Music Finder",
-      "description": "My first fullstack website that helps users find music by scrapping through Spotify & Deezer API and augment data from my custom-made Amazon Music scrapper.",
+      "description": "Website fullstack pertamaku yang membantu pengguna menemukan musik dengan mengambil data dari Spotify & Deezer API dan melengkapi data dengan scrapper Amazon Music buatanku sendiri.",
       "image": "https://firebasestorage.googleapis.com/v0/b/elysian-place.appspot.com/o/projects%2FVixun.png?alt=media&token=3b31f724-4622-4cc9-ad23-901e51363159",
       "stackUrl": [
         "/images/techs/javascript.png",
