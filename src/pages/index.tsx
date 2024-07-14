@@ -6,7 +6,15 @@ import StorySection from "@/components/StorySection";
 import LoveStory from "@/components/StorySection/LoveStory";
 import MoreLearning from "@/components/StorySection/MoreLearning";
 import { serverStorage } from "@/utils/firebase/server";
-import { Box, Image, useBoolean, useCounter, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Image,
+  useBoolean,
+  useBreakpointValue,
+  useCounter,
+  useTheme,
+  VStack
+} from "@chakra-ui/react";
 import { getDownloadURL, listAll, ref } from "firebase/storage";
 import { GetStaticProps, type NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -60,6 +68,7 @@ const Home: NextPage<HomeProps> = ({ pixelCarouselImages }) => {
   const loveStoryRef = useRef<HTMLDivElement>(null);
   const pixelCarouselRef = useRef<HTMLDivElement>(null);
   const moreLearningRef = useRef<HTMLDivElement>(null);
+  const isMd = useBreakpointValue({ base: false, md: true });
   const refCounter = useCounter();
   const [isScrolling, setIsScrolling] = useBoolean();
   const sectionRefs = useMemo(
@@ -89,6 +98,10 @@ const Home: NextPage<HomeProps> = ({ pixelCarouselImages }) => {
 
   const scrollHandler = useCallback(
     (event: WheelEvent<HTMLDivElement>) => {
+      if (!isMd) {
+        return;
+      }
+
       const counterVal = +refCounter.value || 0;
 
       if (
@@ -107,7 +120,7 @@ const Home: NextPage<HomeProps> = ({ pixelCarouselImages }) => {
 
       setIsScrolling.on();
     },
-    [isScrolling, refCounter, sectionRefs.length, setIsScrolling]
+    [isMd, isScrolling, refCounter, sectionRefs.length, setIsScrolling]
   );
 
   const [touchPosition, setTouchPosition] = useState<number>();
@@ -170,10 +183,13 @@ const Home: NextPage<HomeProps> = ({ pixelCarouselImages }) => {
   return (
     <VStack
       w="full"
-      maxH="100vh"
+      maxH={{
+        base: "max-content",
+        md: "100vh"
+      }}
       onWheel={scrollHandler}
-      onTouchStart={touchStartHandler}
-      onTouchEnd={touchEndHandler}
+      // onTouchStart={touchStartHandler}
+      // onTouchEnd={touchEndHandler}
     >
       <Box w="full" ref={profileRef}>
         <VStack

@@ -1,5 +1,5 @@
 /* theme.ts */
-import { extendTheme } from "@chakra-ui/react";
+import { extendTheme, ThemeComponentProps } from "@chakra-ui/react";
 
 export const theme = extendTheme({
   fonts: {
@@ -7,7 +7,7 @@ export const theme = extendTheme({
     body: "var(--font-montserrat)"
   },
   styles: {
-    global: {
+    global: (props: ThemeComponentProps) => ({
       "p, header, h1, h2, h3, h4, h5, h6, small": {
         color: "brand.charcoal.0"
       },
@@ -19,10 +19,12 @@ export const theme = extendTheme({
         letterSpacing: "-0.04em",
         lineHeight: "1.5em !important"
       },
-      html: {
-        overflowY: "hidden"
+      [`@media screen and (min-width: ${props.theme.breakpoints.md})`]: {
+        html: {
+          overflowY: "hidden"
+        }
       }
-    }
+    })
   },
   colors: {
     brand: {
