@@ -54,7 +54,14 @@ const ProjectsPage: NextPage<ProjectsPageProps> = (/* { projects } */) => {
   }) as Project[];
 
   return (
-    <VStack as="section" w="full" h="100vh">
+    <VStack
+      as="section"
+      w="full"
+      maxH={{
+        base: "max-content",
+        md: "100vh"
+      }}
+    >
       {projects.length && <ProjectsList projects={projects} />}
       <Footer />
     </VStack>
