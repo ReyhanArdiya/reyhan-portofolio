@@ -57,10 +57,11 @@ const ProjectsPage: NextPage<ProjectsPageProps> = (/* { projects } */) => {
     <VStack
       as="section"
       w="full"
-      maxH={{
-        base: "max-content",
-        md: "100vh"
-      }}
+      // maxH={{
+      //   base: "max-content",
+      //   md: "100vh"
+      // }}
+      minH="100vh"
     >
       {projects.length && <ProjectsList projects={projects} />}
       <Footer />

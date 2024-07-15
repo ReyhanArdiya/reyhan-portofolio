@@ -246,6 +246,7 @@ const ProjectsList = ({ projects }: ProjectsListProps) => {
             overflow="hidden"
             as="section"
             py="6"
+            spacing="4"
           >
             <Box display="flex" h="full" w="full">
               {carouselItems}
